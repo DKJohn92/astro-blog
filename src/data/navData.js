@@ -7,6 +7,10 @@ const navData = [
     name: "Blog",
     path: "/blog/",
   },
+  {
+    name: "Portfolio",
+    path: "/portfolio/",
+  },
 ];
 
 export default navData;
