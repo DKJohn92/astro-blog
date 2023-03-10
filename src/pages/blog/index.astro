@@ -2,16 +2,19 @@
 //component imports
 import PostCard from "../../components/PostCard.astro";
 import MainLayout from "../../layouts/MainLayout.astro";
+// utils import
+import { formatBlogPosts } from "../../js/utils";
 // get all files with .md ending
 const allPosts = await Astro.glob("./*.md");
+const formatedPosts = formatBlogPosts(allPosts, { sortByDate: true });
 ---
 
 <MainLayout title="Blog" description="My Blog">
   <section class="container" aria-label="New Blog Posts">
-    <h1>New Blog Posts</h1>
+    <h1 class="h1">New Blog Posts</h1>
     <div class="post-container">
       {
-        allPosts.map((post) => {
+        formatedPosts.map((post) => {
           return (
             <PostCard
               frontmatter={post.frontmatter}
